@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/colorMainBlack"
-    tools:context=".view.home.HomeActivity">
+    tools:context=".view.search.SearchActivity">
 
     <TextView
         android:id="@+id/textView"
@@ -14,7 +14,7 @@
         android:layout_height="0dp"
         android:fontFamily="@font/unisansheavycaps"
         android:textColor="@color/colorMainWhite"
-        android:text="@string/app_name"
+        android:text="Search Activity"
         android:textSize="@dimen/font28"
         android:layout_gravity="center"
         android:gravity="center"
@@ -35,6 +35,6 @@
         app:itemBackground="@color/colorMainBlack"
         app:itemIconTint="@drawable/asset_menu_selector"
         app:itemTextColor="@drawable/asset_menu_selector"
-        app:menu="@menu/menu_navigation" />
+        app:menu="@menu/menu_navigation"/>
 
 </LinearLayout>

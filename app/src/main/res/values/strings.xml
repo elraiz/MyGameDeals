@@ -3,4 +3,6 @@
     <string name="app_slogan">Never Pay Full Price Again</string>
     <string name="search_games">Search Games…</string>
     <string name="more_deals">Other Deals</string>
+    <string name="next">NEXT</string>
+    <string name="skip">SKIP</string>
 </resources>

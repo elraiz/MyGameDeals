@@ -7,4 +7,7 @@
     <color name="colorMainBlack">#222222</color>
     <color name="colorLighterBlack">#2f2f2f</color>
     <color name="colorLightestBlack">#3c3c3c</color>
+    <color name="colorMainWhite">#ffffff</color>
+    <color name="colorDimWhite">#a6a6a6</color>
+    <color name="colorWhiteGray">#808080</color>
 </resources>
