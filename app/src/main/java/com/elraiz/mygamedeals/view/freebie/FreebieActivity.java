@@ -25,7 +25,7 @@ public class FreebieActivity extends AppCompatActivity {
 
         //inisialisasi variable
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
-        webView = (WebView) findViewById(R.id.freebie_web);
+        webView = findViewById(R.id.freebie_web);
         WebSettings webSettings = webView.getSettings();
 
         webSettings.getLoadsImagesAutomatically();

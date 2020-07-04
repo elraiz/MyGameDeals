@@ -35,6 +35,7 @@
         app:itemBackground="@color/colorMainBlack"
         app:itemIconTint="@drawable/asset_menu_selector"
         app:itemTextColor="@drawable/asset_menu_selector"
+        android:theme="@style/Widget.BottomNavigationViewCustom"
         app:menu="@menu/menu_navigation" />
 
 </LinearLayout>

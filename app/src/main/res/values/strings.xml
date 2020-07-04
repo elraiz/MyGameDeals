@@ -5,4 +5,7 @@
     <string name="more_deals">Other Deals</string>
     <string name="next">NEXT</string>
     <string name="skip">SKIP</string>
+    <string name="home">HOME</string>
+    <string name="search">SEARCH</string>
+    <string name="freebie">FREEBIE</string>
 </resources>
