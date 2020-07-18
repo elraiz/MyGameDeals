@@ -8,6 +8,7 @@ import android.os.Handler;
 import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.elraiz.mygamedeals.view.walkthrough.WalkthroughActivity;
@@ -17,8 +18,9 @@ public class MainActivity extends AppCompatActivity {
     private static int SPLASH_SCREEN = 4000;
 
     //Variables
-    Animation topAnim, leftAnim, rightAnim;
-    TextView txtappname, txtappslogan;
+    Animation topAnim, leftAnim, rightAnim, bottomAnim;
+    TextView txtappslogan;
+    ImageView txtappname;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,14 +32,15 @@ public class MainActivity extends AppCompatActivity {
         topAnim = AnimationUtils.loadAnimation(this,R.anim.top_animation);
         leftAnim = AnimationUtils.loadAnimation(this,R.anim.left_animation);
         rightAnim = AnimationUtils.loadAnimation(this,R.anim.right_animation);
+        bottomAnim = AnimationUtils.loadAnimation(this,R.anim.bottom_animation);
 
         //Deklarasi Variable Text
         txtappname = findViewById(R.id.appname);
         txtappslogan = findViewById(R.id.appslogan);
 
         //Set Animation
-        txtappname.setAnimation(leftAnim);
-        txtappslogan.setAnimation(rightAnim);
+        txtappname.setAnimation(topAnim);
+        txtappslogan.setAnimation(bottomAnim);
 
         //Transisi Splash Screen
         new Handler().postDelayed(new Runnable() {

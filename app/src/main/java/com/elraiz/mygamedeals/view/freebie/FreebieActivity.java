@@ -3,6 +3,7 @@ package com.elraiz.mygamedeals.view.freebie;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import com.elraiz.mygamedeals.R;
+import com.elraiz.mygamedeals.view.article.ArticleActivity;
 import com.elraiz.mygamedeals.view.home.HomeActivity;
 import com.elraiz.mygamedeals.view.search.SearchActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -48,9 +49,9 @@ public class FreebieActivity extends AppCompatActivity {
                                 , HomeActivity.class));
                         overridePendingTransition(0,0);
                         return true;
-                    case R.id.search:
+                    case R.id.article:
                         startActivity(new Intent(getApplicationContext()
-                                , SearchActivity.class));
+                                , ArticleActivity.class));
                         overridePendingTransition(0,0);
                         return true;
                     case R.id.freebie:

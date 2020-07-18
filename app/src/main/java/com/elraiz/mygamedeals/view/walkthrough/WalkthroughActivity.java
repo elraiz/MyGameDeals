@@ -49,9 +49,9 @@ public class WalkthroughActivity extends AppCompatActivity {
 
         //list screen
         final List<ScreenItem> mList = new ArrayList<>();
-        mList.add(new ScreenItem("AHH THATS HOT","See the hottest deals available righ now",R.drawable.icon_sample));
-        mList.add(new ScreenItem("SEARCH FOR THE PRICE","Search for the price for your desired games",R.drawable.icon_sample));
-        mList.add(new ScreenItem("ITS FREE REAL ESTATE","See what freebie offer you can get",R.drawable.icon_sample));
+        mList.add(new ScreenItem("AHH THATS HOT","See the hottest deals available righ now",R.drawable.asset_walkthrough_1));
+        mList.add(new ScreenItem("SEARCH FOR THE PRICE","Search for the price for your desired games",R.drawable.asset_walkthrough_2));
+        mList.add(new ScreenItem("ITS FREE REAL ESTATE","See what freebie offer you can get",R.drawable.asset_walkthrough_3));
 
         //setup viewpager
         screenPager = findViewById(R.id.screen_viewpager);

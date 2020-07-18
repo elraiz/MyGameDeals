@@ -5,23 +5,65 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/colorMainBlack"
+    android:background="@color/colorLighterBlack"
     tools:context=".view.search.SearchActivity">
 
-    <TextView
-        android:id="@+id/textView"
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:fontFamily="@font/unisansheavycaps"
-        android:textColor="@color/colorMainWhite"
-        android:text="@string/search"
-        android:textSize="@dimen/font28"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:layout_weight="1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:focusableInTouchMode="true"
+                android:focusable="true"
+                android:orientation="vertical"
+                android:padding="@dimen/dimen10"
+                android:layout_marginBottom="@dimen/dimen10"
+                android:background="@color/colorMainBlack">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen10"
+                    android:layout_marginBottom="@dimen/dimen10"
+                    android:fontFamily="@font/quarklight"
+                    android:textColor="@color/colorMainWhite"
+                    android:textSize="@dimen/font18"
+                    android:text="Showing Results For"/>
+
+                <TextView
+                    android:id="@+id/search_game_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/dimen10"
+                    android:fontFamily="@font/unisansheavycaps"
+                    android:textColor="@color/colorMainWhite"
+                    android:text="@string/search"
+                    android:textSize="@dimen/font18"/>
+
+            </LinearLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/searchList"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_marginLeft="@dimen/dimen10"
+                    android:layout_marginRight="@dimen/dimen10"
+                    android:nestedScrollingEnabled="false"/>
+
+        </LinearLayout>
+    </ScrollView>
 
     <View
         android:layout_width="match_parent"

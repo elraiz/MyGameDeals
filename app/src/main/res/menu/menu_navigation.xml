@@ -6,9 +6,9 @@
         android:title="@string/home"
         android:icon="@drawable/icon_home"/>
     <item
-        android:id="@+id/search"
-        android:title="@string/search"
-        android:icon="@drawable/icon_search"/>
+        android:id="@+id/article"
+        android:title="@string/article"
+        android:icon="@drawable/icon_article"/>
     <item
         android:id="@+id/freebie"
         android:title="@string/freebie"
