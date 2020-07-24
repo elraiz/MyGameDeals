@@ -10,6 +10,7 @@ public class APIData {
     private String steamreview;
     private String onsale;
 
+    //constructor
     public APIData(){}
     public APIData(String title, String dealprice, String normalprice, String coverImage, String discount, String metacritic, String steamreview, String onsale){
         this.title = title;
@@ -22,6 +23,7 @@ public class APIData {
         this.onsale = onsale;
     }
 
+    //fungsi setter dan getter
     public String getTitle() {
         return title;
     }

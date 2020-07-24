@@ -28,6 +28,33 @@
                 android:layout_marginBottom="@dimen/dimen10"
                 android:background="@color/colorMainBlack">
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <ImageButton
+                        android:id="@+id/search_back_button"
+                        android:layout_width="@dimen/dimen36"
+                        android:layout_height="@dimen/dimen36"
+                        android:background="@color/colorLighterBlack"
+                        android:clickable="true"
+                        app:srcCompat="@drawable/icon_back" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dimen10"
+                        android:layout_marginEnd="@dimen/dimen10"
+                        android:layout_gravity="center"
+                        android:background="@color/colorMainBlack"
+                        android:fontFamily="@font/unisansheavycaps"
+                        android:textColor="@color/colorMainWhite"
+                        android:textSize="@dimen/font20"
+                        android:text="@string/app_name"/>
+
+                </LinearLayout>
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -46,7 +73,7 @@
                     android:fontFamily="@font/unisansheavycaps"
                     android:textColor="@color/colorMainWhite"
                     android:text="@string/search"
-                    android:textSize="@dimen/font18"/>
+                    android:textSize="@dimen/font16"/>
 
             </LinearLayout>
 

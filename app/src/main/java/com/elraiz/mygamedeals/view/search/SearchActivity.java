@@ -10,6 +10,8 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.android.volley.Request;
@@ -34,24 +36,41 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SearchActivity extends AppCompatActivity implements SearchRecycleView.OnItemClickListener {
+
+    //inisialisasi variable
+    private ImageButton btnback;
     RecyclerView searchrecyclerView;
-    List<APIData> searches;
-    SearchRecycleView searchRecycleView;
+    List<APIData> searches; //pembuatan list yang mereference data dari java class APIData untuk menampung data hasil dari activity_search
+    SearchRecycleView searchRecycleView; //inisialisasi variable untuk adaptor SearchRecycleView
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
 
+        btnback = findViewById(R.id.search_back_button);
+
+        //mengambil query text dari search bar pada HomeActivity
         Intent searchintent = getIntent();
         String game = searchintent.getStringExtra(HomeActivity.EXTRA_TEXT);
 
+        //menyambugkan textview untuk menampilkan query yang dimasukan user
         TextView gametext = findViewById(R.id.search_game_title);
-        gametext.setText(game);
+        gametext.setText(game); //set text query inputan user di textview
 
-        searchrecyclerView = findViewById(R.id.searchList);
-        searches = new ArrayList<>();
-        ParseJSON();
+        searchrecyclerView = findViewById(R.id.searchList); //menyambungka recycleview yang ada pada activity_search
+        searches = new ArrayList<>(); //pembuatan ArrayList yang akan menampung data dari API
+        ParseJSON(); //pemanggilan fungsi untuk parsing JSON
+
+        //button back listener
+        btnback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent backIntent = new Intent(getApplicationContext(),HomeActivity.class);
+                startActivity(backIntent);
+                finish();
+            }
+        });
 
         //inisialisasi variable
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
@@ -86,10 +105,11 @@ public class SearchActivity extends AppCompatActivity implements SearchRecycleVi
     }
 
     private void ParseJSON() {
+        //fungsi untuk memparsing JSON untuk mencari data game sesuai inputan user
         Intent searchintent = getIntent();
         String gamesearch = searchintent.getStringExtra(HomeActivity.EXTRA_TEXT);
         RequestQueue queue = Volley.newRequestQueue(this);
-        gamesearch = gamesearch.replaceAll(" ","%20");
+        gamesearch = gamesearch.replaceAll(" ","%20"); //menggati karakter spasi menjadi %20 untuk merequest ke API
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, "https://www.cheapshark.com/api/1.0/deals?storeID=1&title="+gamesearch, null, new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray response) {
@@ -97,6 +117,7 @@ public class SearchActivity extends AppCompatActivity implements SearchRecycleVi
                     try {
                         JSONObject gameObject = response.getJSONObject(i);
 
+                        //pengambilan data dari API sesuai kebutuhan
                         APIData search = new APIData();
                         search.setTitle(gameObject.getString("title"));
                         search.setDealPrice(gameObject.getString("salePrice"));
@@ -105,6 +126,7 @@ public class SearchActivity extends AppCompatActivity implements SearchRecycleVi
                         search.setDiscount(gameObject.getString("savings"));
                         search.setMetacritic(gameObject.getString("steamRatingPercent"));
                         search.setSteamreview(gameObject.getString("steamRatingText"));
+                        //menambahkan data yang sudah terambil kedalam Array List
                         searches.add(search);
 
                     } catch (JSONException e) {
@@ -113,8 +135,8 @@ public class SearchActivity extends AppCompatActivity implements SearchRecycleVi
                 }
                 searchrecyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
                 searchRecycleView = new SearchRecycleView(getApplicationContext(),searches);
-                searchrecyclerView.setAdapter(searchRecycleView);
-                searchRecycleView.setOnItemClickListener(SearchActivity.this);
+                searchrecyclerView.setAdapter(searchRecycleView); //menyambungkan adapater
+                searchRecycleView.setOnItemClickListener(SearchActivity.this); //pemanggilan fungsi jika item pada recycleview ditekan
             }
         }, new Response.ErrorListener() {
             @Override
@@ -128,6 +150,7 @@ public class SearchActivity extends AppCompatActivity implements SearchRecycleVi
 
     @Override
     public void onItemClick(int position) {
+        //fungsi untuk item pada recycleview jika ditekan
         APIData clickedItem = searches.get(position);
         Intent intentstore = new Intent(Intent.ACTION_VIEW, Uri.parse("https://store.steampowered.com/app/"+clickedItem.getCoverImage()));
         startActivity(intentstore);

@@ -41,13 +41,13 @@ public class SearchRecycleView extends RecyclerView.Adapter<SearchRecycleView.Vi
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        // bind the data
+        // menyambugkan data dari array list ke custom layout cardview untuk search game
         holder.searchTitle.setText(searches.get(position).getTitle());
         holder.searchNormarPrice.setText("Normal Price : $ "+searches.get(position).getNormalPrice());
         holder.searchDealPrice.setText("Price Now : $ "+searches.get(position).getDealPrice());
         holder.searchDiscount.setText(""+searches.get(position).getDiscount().substring(0,2).replace(".","")+"%");
         holder.searchMetacritic.setText(searches.get(position).getMetacritic()+" | "+searches.get(position).getSteamreview());
-        Picasso.get().load("https://steamcdn-a.akamaihd.net/steam/apps/"+searches.get(position).getCoverImage()+"/header.jpg").into(holder.searchCoverImage);
+        Picasso.get().load("https://steamcdn-a.akamaihd.net/steam/apps/"+searches.get(position).getCoverImage()+"/header.jpg").fit().centerCrop().into(holder.searchCoverImage);
     }
 
     @Override
